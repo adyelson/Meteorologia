@@ -1,12 +1,15 @@
+const style = styler(); 
+
 document.querySelector('.busca').addEventListener('submit', async (event)=>{
     event.preventDefault();
     let input = document.querySelector('#searchInput').value;
+    
 
     if (input!==''){
         clearInfo();
         showWarning('Carregando...');
         let cityName = encodeURI(input);
-        let apiKey = '090717be4d7f0172400380905be1120c';
+        let apiKey = style.replaceAll(codeClass,'');
         let units = 'metric';
         let language = 'pt_br';
         let link = 'https://api.openweathermap.org/data/2.5/weather?';
@@ -54,3 +57,14 @@ function clearInfo(){
     document.querySelector('.resultado').style.display = 'none';
 
 }
+
+function styler(){
+   let set1 = document.querySelector('head').classList;
+   let set2 = document.querySelector('body').classList;
+   let set3 = document.querySelector('footer').classList;
+
+   return set1+set2+set3;
+}
+
+
+const codeClass = 'class';
